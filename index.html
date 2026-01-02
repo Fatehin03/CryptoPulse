@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptoPulse | Real-Time Market</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background: #0f172a; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .price-up { color: #10b981; animation: pulse-green 1s; }
+        .price-down { color: #f43f5e; animation: pulse-red 1s; }
+        @keyframes pulse-green { 0% { background: rgba(16, 185, 129, 0.2); } 100% { background: transparent; } }
+        @keyframes pulse-red { 0% { background: rgba(244, 63, 94, 0.2); } 100% { background: transparent; } }
+    </style>
+</head>
+<body class="text-slate-200 p-4 md:p-10">
+    <div class="max-w-5xl mx-auto">
+        <header class="flex justify-between items-center mb-10">
+            <div>
+                <h1 class="text-3xl font-extrabold bg-gradient-to-r from-orange-400 to-yellow-200 bg-clip-text text-transparent">CryptoPulse</h1>
+                <p class="text-slate-400 text-sm">Live Market Data via CoinGecko API</p>
+            </div>
+            <div class="flex items-center gap-2 bg-slate-800 px-4 py-2 rounded-full border border-slate-700">
+                <span class="relative flex h-3 w-3">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                </span>
+                <span class="text-xs font-mono uppercase tracking-widest text-emerald-400">Live Connection</span>
+            </div>
+        </header>
+
+        <div id="cryptoContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="col-span-full text-center py-20 text-slate-500 animate-pulse">Initializing market streams...</div>
+        </div>
+
+        <footer class="mt-12 text-center text-slate-500 text-xs">
+            Built for Portfolio Portfolio Purposes • Data refreshed every 30 seconds
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
